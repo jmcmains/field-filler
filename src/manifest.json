@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/BohemianCoding/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "Build Vanilla Ads",
+      "identifier": "field-filler.field-filler-identifier",
+      "script": "./field-filler.js"
+    },
+    {
+      "name": "Generate Yaml",
+      "identifier": "field-filler.config-generator-identifier",
+      "script": "./config-generator.js"
+
+    }
+  ],
+  "menu": {
+    "title": "Enterprise Scripts",
+    "items": [
+      "field-filler.config-generator-identifier",
+      "field-filler.field-filler-identifier"
+    ]
+  }
+}

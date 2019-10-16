@@ -1,0 +1,321 @@
+  # web ad for listings
+
+<%= IO.read('config/campaign_layouts/common/common_shared_components.yml') %>
+<%= IO.read('config/campaign_layouts/_listing.yml') %>
+
+dobby_hunt:
+  base_name: :dobby_hunt
+  type: 'composite'
+  code: 'base'
+  settings:
+    width: 300
+    height: 250
+  main_image:
+    option_block_style:
+      marginTop: 26px
+    position: left-top
+    label: Property
+    dimensions: 1200x572
+  side_image:
+    position: left-middle
+    label: Your Image
+    dimensions: 88x88
+    option_block_style:
+      marginTop: 0px
+  ribbon_options:
+    options:
+      none:
+        label: 'None'
+        headline: 'For Sale'
+        src: '/assets/ad_config/real_estate/blank.png'
+      justListed:
+        label: 'Just Listed'
+        src: '/assets/ad_config/real_estate/ribbon-just-listed.png'
+        headline: 'Just Listed'
+      justSold:
+        label: 'Just Sold'
+        src: '/assets/ad_config/real_estate/ribbon-just-sold.png'
+        headline: 'Just Sold'
+      priceReduced:
+        label: 'Price Reduced'
+        src: '/assets/ad_config/real_estate/ribbon-price-reduced.png'
+        headline: 'Price Reduced'
+      openHouse:
+        label: 'Open House'
+        src: '/assets/ad_config/real_estate/ribbon-open-house.png'
+        headline: 'Open House'
+      pending:
+        label: 'Pending'
+        src: '/assets/ad_config/real_estate/ribbon-pending.png'
+        headline: 'Pending'
+    position: right-top
+    label: Corner Ribbon
+    option_block_style:
+      marginTop: 28px
+  meta:
+    defaults:
+      phone:
+        text: ADD PHONE NUMBER
+  ui_controls:
+    - name: message
+      label: Colors
+      position: left-bottom
+      option_block_style:
+        marginTop: 40px
+      fields:
+        - label: Background Color
+          component: petriebird_banner_background
+          setting: background
+          control: color
+          cascades_to:
+            - petriebird_banner2_background:background
+        - label: Text Color
+          component: petriebird_headline
+          setting: color
+          control: color
+          cascades_to:
+            - agent:color
+            - broker:color
+            - phone:color
+
+    - name: text
+      label: 'Text'
+      position: right-middle
+      option_block_style:
+        marginTop: 28px
+      fields:
+        - component: petriebird_label
+          text: 'Changes here will not affect your MLS listing.'
+          control: label
+          css: italic text-size-12
+
+        - label: Headline
+          required: true
+          component: petriebird_headline
+          setting: text
+          control: text
+          filters:
+            - *headline_filter
+        - label: Name
+          required: true
+          component: agent
+          setting: text
+          control: text
+          filters:
+            - *agent_filter
+        - label: Company
+          required: true
+          component: broker
+          setting: text
+          control: text
+          filters:
+            - *broker_filter
+        - label: Location
+          required: true
+          component: location
+          setting: text
+          control: text
+          filters:
+            - *location_filter
+        - label: Phone
+          required: true
+          component: phone
+          setting: text
+          control: text
+          filters:
+            - *phone_filter
+
+  components:
+    - code: 'background'
+      type: 'image'
+      settings:
+        left: 0
+        top: 26
+        width: 300
+        height: 143
+      configurable: [ 'src' ]
+
+    - type: 'block'
+      code: 'location_background'
+
+      settings:
+        left: 0
+        top: 228
+        width: 300
+        height: 22
+        background: "#393939"
+
+    - type: 'block'
+      code: 'petriebird_banner_background'
+      configurable:
+        - background
+      settings:
+        left: 0
+        top: 0
+        width: 300
+        height: 26
+        background: '#6A7572'
+
+    - *footer_br_ads_by_adwerx_eho_realtor
+
+    - type: 'block'
+      code: 'petriebird_banner2_background'
+      configurable:
+        - background
+      settings:
+        left: 0
+        top: 169
+        width: 300
+        height: 59
+        background: '#6A7572'
+
+    - code: 'inset'
+      type: 'image'
+      settings:
+        left: 0
+        top: 169
+        width: 59
+        height: 59
+      configurable: [ 'src' ]
+
+    - type: 'text'
+      code: 'petriebird_headline'
+      relativeTo:
+        element: ribbon
+        setting: src
+        adjustForNo:
+          width: +65
+          textAlign: center
+      settings:
+        top: 0
+        left: 10
+        width: 215
+        height: 26
+        textAlign: 'left'
+        fontSize:
+          min: '13px'
+          max: '16px'
+        fontFamily: 'Roboto'
+        fontWeight: 'bold'
+        verticalAlign: "middle"
+        color: '#ffffff'
+      configurable: [ 'text', 'color', 'fontSize' ]
+
+    - type: 'text'
+      code: 'agent'
+      relativeTo:
+        element: inset
+        adjustForNo:
+          left: -59
+          width: +59
+          textAlign: center
+      settings:
+        top: 174
+        left: 69
+        width: 146
+        height: 17
+        textAlign: 'left'
+        fontSize:
+          min: '13px'
+          max: '14px'
+        fontFamily: 'Roboto'
+        fontWeight: 'bold'
+        verticalAlign: "middle"
+        color: '#ffffff'
+      configurable: [ 'text', 'color', 'fontSize' ]
+
+    - type: 'text'
+      code: 'broker'
+      relativeTo:
+        element: inset
+        adjustForNo:
+          left: -59
+          width: +59
+          textAlign: center
+      settings:
+        top: 190
+        left: 69
+        width: 146
+        height: 18
+        textAlign: 'left'
+        fontSize:
+          min: '8px'
+          max: '14px'
+        fontFamily: 'Roboto'
+        fontWeight: 'bold'
+        verticalAlign: "middle"
+        color: '#ffffff'
+      configurable: [ 'text', 'color', 'fontSize' ]
+
+    - type: text
+      code: phone
+      relativeTo:
+        element: inset
+        adjustForNo:
+          left: -59
+          width: +59
+          textAlign: center
+      settings:
+        top: 208
+        left: 69
+        width: 146
+        height: 15
+        textAlign: 'left'
+        fontSize:
+          min: '10px'
+          max: '13px'
+        fontFamily: 'Roboto'
+        fontWeight: 'bold'
+        verticalAlign: "middle"
+        color: '#ffffff'
+        opacity: 0.8
+      configurable: [ 'text', 'color', 'fontSize' ]
+
+    - type: 'text'
+      code: 'location'
+      settings:
+        top: 228
+        left: 10
+        width: 193
+        height: 22
+        textAlign: 'left'
+        fontSize:
+          min: '11px'
+          max: '13px'
+        fontFamily: 'Roboto'
+        fontWeight: 'normal'
+        verticalAlign: "middle"
+        color: '#ffffff'
+        opacity: 0.95
+      configurable: [ 'text', 'color', 'fontSize' ]
+
+    - type: image
+      code: ribbon
+      label: For Sale
+      settings:
+        top: 0
+        left: 213
+        width: 87
+        height: 75
+      configurable: ['headline', 'src']
+
+    - type: block
+      code: dobby_wrapper
+      settings:
+        left: 230
+        top: 169
+        width: 70
+        height: 59
+        background: 'dobby_wrapper'
+      configurable: [ 'background' ]
+
+    - type: image
+      code: dobby_logo
+      settings:
+        left: 235
+        top: 174
+        maxWidth: 60
+        maxHeight: 49
+        verticalAlign: middle
+        src: 'dobby_logo'
+      configurable: [ 'src', 'left', 'top', 'maxWidth', 'maxHeight' ]
