@@ -3,7 +3,7 @@ import Output from "./classes/output";
 
 // documentation: https://developer.sketchapp.com/reference/api/
 var document = require('sketch/dom').getSelectedDocument();
-
+import sketch from 'sketch'
 var UI = require('sketch/ui');
 
 
@@ -33,6 +33,7 @@ export default function() {
     }
   });
   new Layout(artboard, layoutType, includeUI).exportYAML(outputDirectory);
+  sketch.UI.message('Check the dir');
   console.log('Check the dir')
 }
 

@@ -1,6 +1,3 @@
-# build artifacts
-field-filler.sketchplugin
-
 # npm
 node_modules
 .npm

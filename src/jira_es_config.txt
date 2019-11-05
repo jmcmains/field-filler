@@ -1,0 +1,77 @@
+{
+  "config.version" : "2.0",
+  "config.project.from.csv" : "false",
+  "config.encoding" : "UTF-8",
+  "config.file.id" : "30fe78e2-3081-40c6-90a7-4432ee7719bb",
+  "config.email.suffix" : "@",
+  "config.file.name" : "Enterprise Studio Epic Generator - Output (12).csv",
+  "config.field.mappings" : {
+    "Issue Type" : {
+      "jira.field" : "issuetype",
+      "userChanged" : "false",
+      "manualMapping" : "false"
+    },
+    "Story points" : {
+      "userChanged" : "false",
+      "manualMapping" : "false",
+      "existing.custom.field" : "10022"
+    },
+    "Project description" : {
+      "jira.field" : "description",
+      "userChanged" : "false",
+      "manualMapping" : "false"
+    },
+    "Priority" : {
+      "jira.field" : "priority",
+      "userChanged" : "false",
+      "manualMapping" : "false"
+    },
+    "Reporter" : {
+      "jira.field" : "reporter",
+      "userChanged" : "false",
+      "manualMapping" : "false"
+    },
+    "Summary" : {
+      "jira.field" : "summary",
+      "userChanged" : "false",
+      "manualMapping" : "false"
+    },
+    "Outward issue link (Blocks)" : {
+      "link.type" : "10000",
+      "userChanged" : "false",
+      "manualMapping" : "false"
+    },
+    "Labels" : {
+      "jira.field" : "labels",
+      "userChanged" : "true",
+      "manualMapping" : "false"
+    },
+    "Issue id" : {
+      "jira.field" : "issue-id",
+      "userChanged" : "false",
+      "manualMapping" : "false"
+    },
+    "Epic Name" : {
+      "userChanged" : "false",
+      "manualMapping" : "false",
+      "existing.custom.field" : "10020"
+    },
+    "Epic Link" : {
+      "userChanged" : "false",
+      "manualMapping" : "false",
+      "existing.custom.field" : "10018"
+    }
+  },
+  "config.csv.file.id" : null,
+  "config.value.mappings" : { },
+  "config.delimiter" : ",",
+  "config.project" : {
+    "project.type" : null,
+    "project.key" : "ES",
+    "project.description" : null,
+    "project.url" : null,
+    "project.name" : "Enterprise",
+    "project.lead" : "jmcmains"
+  },
+  "config.date.format" : "dd/MMM/yy h:mm a"
+}

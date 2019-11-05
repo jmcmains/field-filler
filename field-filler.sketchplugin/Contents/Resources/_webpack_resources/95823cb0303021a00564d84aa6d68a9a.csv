@@ -1,0 +1,102 @@
+Summary,Issue id,Issue Type,Project description,Story points,Epic Name,Labels,Priority,Reporter,Outward issue link (Blocks),Outward issue link (Blocks),Outward issue link (Blocks),,Epic Link
+{{partner_long}},1,Epic,,,{{partner}},Phase1,Medium,{{reporter}},,,,,
+Create {{partner_long}} sftp login,2,Story,"h1. Background
+For a walkthrough and standard notes, please see the confluence doc: [Adding a new SFTP account|https://adwerx.atlassian.net/wiki/spaces/EN/pages/4718611]",0.5,,SFTP Onboarding,Medium,{{reporter}},,,,,{{partner}}
+Create {{partner_long}} vanilla portal and ad config,3,Story,"h1. Partner specific details
+- *Partner Name*: {{partner_long}}
+- *Partner Code/Subdomain*: {{partner}}
+- *Discount*: 15%
+- *Primary Brand Color*: {{primary_color}}
+- *Other Brand Colors*: {{other_color}}
+- *link to assets:* {{asset_link}}
+
+h1. Background
+For a walkthrough and standard notes, please see the confluence doc: [Build Partner Vanilla Portal and Ad Config|https://adwerx.atlassian.net/wiki/spaces/EN/pages/284426573]",0.5,,Vanilla Onboarding,Medium,{{reporter}},7,4,,,{{partner}}
+SSO login information for {{partner_long}},4,Story,"h1. Background
+For a walkthrough and standard notes, please see the confluence doc: [SSO Setup|https://adwerx.atlassian.net/wiki/spaces/EN/pages/293666823]",0.5,,SSO Onboarding,Medium,{{reporter}},,,,,{{partner}}
+Configure {{partner_long}} ELF settings,5,Story,"h1. Partner specific details
+_This section will be filled out once the information is available_
+*Which listings in the feed should be ELFed?*
+
+*How long should the campaigns run?*
+_1 week default_
+
+*Price per campaign?*
+_$35 default_
+
+*Budget*
+impressions: _7000 default_
+anx_web: _$7.70 default_
+fb: _$7.00 default_
+
+*Targeting radius?*
+_15 miles default_
+
+*Default ELF Banner*
+just_listed
+
+h1. Background
+For a walkthrough and standard notes, please see the confluence doc: [Setting up an ELF Configuration|https://adwerx.atlassian.net/wiki/spaces/EN/pages/284655931]
+",1,,ELF Onboarding,Medium,{{reporter}},10,,,,{{partner}}
+Configure {{partner_long}} retargeting settings,6,Story,"h1. Partner specific details
+Automate all {{partner_long}} agents for retargeting as long as they have enough information to build ads and accounts
+h2. Data Required
+_default required fields included, update if necessary_
+* Headshot
+* First Name
+* Last Name
+* Phone Number
+* City
+* State
+* Email
+* URL
+
+h1. Background
+For a walkthrough and standard notes, please see the confluence doc: [Eligibility vs. Validity Rules for Retargeting AP2|https://adwerx.atlassian.net/wiki/spaces/EN/pages/848035844]
+",2,,Retargeting Onboarding,Medium,{{reporter}},10,,,,{{partner}}
+Customize {partner_long} portal and ad designs based on partner feedback,7,Story,"h1. Difference from vanilla
+*link to assets:* {{asset_link}}
+_VQA notes should be entered here_
+
+h1. Background
+For a walkthrough and standard notes, please see the confluence doc: [Customize Partner Portal and Ad Config|https://adwerx.atlassian.net/wiki/spaces/EN/pages/284393753]",,,CustomizePortal CustomizeAd Onboarding,Medium,{{reporter}},10,,,,{{partner}}
+Configure {partner_long} listing and agent feeds,8,Story,"h1. Feed Information
+_Feed information will be added below once available_
+
+h1. Change Recording
+Please add change recorders for the following fields so that the retargeting process will run on the changes:
+_default required fields included, update if necessary_
+* Headshot
+* First Name
+* Last Name
+* Phone Number
+* City
+* State
+* Email
+* URL
+
+h1. Background
+for a walkthrough of how this is done, please consult the confluence doc: [Partner Data Feeds|https://adwerx.atlassian.net/wiki/spaces/EN/pages/6127626]
+",2,,ListingAgentFeed Onboarding,Medium,{{reporter}},10,,,,{{partner}}
+Integrate {partner_long} seller information,9,Story,"h2. Goal
+- Integrate {{partner_long}} seller info account
+
+h2. Account info
+_include details when known_
+*Service*: Dotloop/Skyslope/Docusign
+*Username*: _fill in for skyslope only_
+*Password*: _fill in for skyslope only_
+
+h1. Background
+for info on how to do this integration: [Skyslope/Dotloop Integration Guide|https://adwerx.atlassian.net/wiki/spaces/EN/pages/500563969]",0.5,,SellerFeed Onboarding,Medium,{{reporter}},,,,,{{partner}}
+Soft launch {partner_long} portal,10,Story,"h1. Background
+For a walkthrough and standard notes, please see the confluence docs: 
+[ELF Soft Launch|https://adwerx.atlassian.net/wiki/spaces/EN/pages/225083444]
+[Testing and soft launching Enterprise Retargeting|https://adwerx.atlassian.net/wiki/spaces/EN/pages/826277908]",0.5,,SoftLaunch Onboarding,Medium,{{reporter}},11,,,,{{partner}}
+Public launch {partner_long} portal,11,Story,"*look back date*: _1 week lookback default_
+
+h1. Background
+For a walkthrough and standard notes, please see the confluence doc: 
+[Public Launch|https://adwerx.atlassian.net/wiki/spaces/EN/pages/284655775]
+[ELF Launch|https://adwerx.atlassian.net/wiki/spaces/EN/pages/457179142]
+[Launching Retargeting Automation for a Partner|https://adwerx.atlassian.net/wiki/spaces/EN/pages/825589779]",0.5,,PublicLaunch Onboarding,Medium,{{reporter}},,,,,{{partner}}

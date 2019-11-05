@@ -5,17 +5,17 @@
     {
       "name": "Build Vanilla Ads",
       "identifier": "field-filler.field-filler-identifier",
-      "script": "./field-filler.js"
+      "script": "field-filler.js"
     },
     {
       "name": "Generate Yaml",
       "identifier": "field-filler.config-generator-identifier",
-      "script": "./config-generator.js"
+      "script": "config-generator.js"
     },
     {
       "name": "Generate Jira Cards",
       "identifier": "field-filler.epic-generator-identifier",
-      "script": "./epic-generator.js"
+      "script": "epic-generator.js"
     }
   ],
   "menu": {
@@ -25,5 +25,13 @@
       "field-filler.field-filler-identifier",
       "field-filler.epic-generator-identifier"
     ]
-  }
+  },
+  "version": "0.1.0",
+  "description": "",
+  "name": "field-filler",
+  "identifier": "field-filler",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "author": "Jason McMains",
+  "authorEmail": "jmcmains@adwerx.com"
 }
