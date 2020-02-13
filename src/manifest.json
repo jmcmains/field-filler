@@ -16,6 +16,16 @@
       "name": "Generate Jira Cards",
       "identifier": "field-filler.epic-generator-identifier",
       "script": "./epic-generator.js"
+    },
+    {
+      "name": "Set Brand Colors",
+      "identifier": "field-filler.brand-setter-identifier",
+      "script": "./brand-setter.js"
+    },
+    {
+      "name": "Export Assets",
+      "identifier": "field-filler.export-assets-identifier",
+      "script": "./export-assets.js"
     }
   ],
   "menu": {
@@ -23,6 +33,8 @@
     "items": [
       "field-filler.config-generator-identifier",
       "field-filler.field-filler-identifier",
+      "field-filler.brand-setter-identifier",
+      "field-filler.export-assets-identifier",
       "field-filler.epic-generator-identifier"
     ]
   }

@@ -91,6 +91,137 @@ var exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/classes/bigbrand-field.js":
+/*!***************************************!*\
+  !*** ./src/classes/bigbrand-field.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BigbrandField; });
+/* harmony import */ var _field_group__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./field-group */ "./src/classes/field-group.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var BigbrandField =
+/*#__PURE__*/
+function (_FieldGroup) {
+  _inherits(BigbrandField, _FieldGroup);
+
+  function BigbrandField() {
+    _classCallCheck(this, BigbrandField);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BigbrandField).apply(this, arguments));
+  }
+
+  _createClass(BigbrandField, [{
+    key: "outputName",
+    value: function outputName() {
+      return 'bigbrand';
+    }
+  }, {
+    key: "outputText",
+    value: function outputText() {
+      return "We make “big brand” ads available to " + this.getInputElement().text + " agents";
+    }
+  }]);
+
+  return BigbrandField;
+}(_field_group__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./src/classes/color-swatch.js":
+/*!*************************************!*\
+  !*** ./src/classes/color-swatch.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ColorSwatch; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ColorSwatch =
+/*#__PURE__*/
+function () {
+  function ColorSwatch(document, hideTertiary) {
+    _classCallCheck(this, ColorSwatch);
+
+    this.document = document;
+    this.symbols = document.getSymbols();
+    this.hideTertiary = hideTertiary;
+  }
+
+  _createClass(ColorSwatch, [{
+    key: "swatchWith",
+    value: function swatchWith() {
+      return this.symbols.filter(function (symbol) {
+        return symbol.name === "color swatch";
+      })[0];
+    }
+  }, {
+    key: "swatchWithOut",
+    value: function swatchWithOut() {
+      return this.symbols.filter(function (symbol) {
+        return symbol.name === "color swatch wo tertiary";
+      })[0];
+    }
+  }, {
+    key: "getSwatchSymbolId",
+    value: function getSwatchSymbolId() {
+      if (this.hideTertiary) {
+        return this.swatchWithOut().symbolId;
+      } else {
+        return this.swatchWith().symbolId;
+      }
+    }
+  }, {
+    key: "update",
+    value: function update() {
+      var symbolId = this.getSwatchSymbolId();
+      this.swatchWith().getAllInstances().forEach(function (instance) {
+        instance.symbolId = symbolId;
+      });
+      this.swatchWithOut().getAllInstances().forEach(function (instance) {
+        instance.symbolId = symbolId;
+      });
+    }
+  }]);
+
+  return ColorSwatch;
+}();
+
+
+
+/***/ }),
+
 /***/ "./src/classes/color.js":
 /*!******************************!*\
   !*** ./src/classes/color.js ***!
@@ -166,6 +297,12 @@ function () {
     key: "localColor",
     value: function localColor() {
       return this.getColorLayer().style.fills[0].color;
+    }
+  }, {
+    key: "setDefaultColor",
+    value: function setDefaultColor(color) {
+      this.getColorLayer().style.fills[0].color = color;
+      return this;
     }
   }, {
     key: "setColor",
@@ -286,7 +423,7 @@ function () {
   }, {
     key: "outputText",
     value: function outputText() {
-      return this.getInputElement().text;
+      return this.getInputElement() == null ? '' : this.getInputElement().text;
     }
   }, {
     key: "getInputElement",
@@ -295,8 +432,8 @@ function () {
     }
   }, {
     key: "setField",
-    value: function setField() {
-      var input = this.outputText();
+    value: function setField(optionalInput) {
+      var input = this.outputText(optionalInput);
       var layers = this.document.getLayersNamed(this.outputName());
 
       for (var i = 0; i < layers.length; i++) {
@@ -355,8 +492,13 @@ function () {
       var logoImage = this.logo.layers[0];
       logoImage.frame.x = 0;
       logoImage.frame.y = 0;
-      logoImage.frame.height = this.logo.frame.height;
-      this.logo.frame.width = logoImage.frame.width;
+      var initial_height = logoImage.frame.height;
+      var initial_width = logoImage.frame.width;
+      var frame_height = this.logo.frame.height;
+      logoImage.frame.height = frame_height;
+      var end_width = initial_width * frame_height / initial_height;
+      this.logo.frame.width = end_width;
+      logoImage.frame.width = end_width;
     }
   }, {
     key: "aspectRatio",
@@ -473,16 +615,36 @@ function () {
       var localLogo = this.findArtboardLogo(artboardName);
       this.setWrapper('logo-wrapper', artboardName);
       localLogo.frame = this.rect();
-      var layers = this.document.getLayersNamed('office');
-      var officeName = layers.filter(function (layer) {
-        return layer.getParentArtboard().name === artboardName;
-      })[0];
-      var layers = this.document.getLayersNamed('location');
-      var location = layers.filter(function (layer) {
-        return layer.getParentArtboard().name === artboardName;
-      })[0];
+      var office = this.getLayer('office', artboardName);
+      var location = this.getLayer('location', artboardName);
+      var agentTitle = this.getLayer('agent-title', artboardName);
       location.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
-      officeName.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
+
+      if (office) {
+        office.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
+      }
+
+      if (agentTitle) {
+        agentTitle.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
+      }
+    }
+  }, {
+    key: "getLayer",
+    value: function getLayer(name, artboardName) {
+      var layers = this.document.getLayersNamed(name);
+      return layers.filter(function (layer) {
+        return layer.getParentArtboard().name === artboardName;
+      })[0];
+    }
+  }, {
+    key: "rightAlign",
+    value: function rightAlign(artboardName, padding) {
+      this.alignVertical = 'middle';
+      this.alignHorizontal = 'right';
+      this.padding = padding || 5;
+      var localLogo = this.findArtboardLogo(artboardName);
+      this.setWrapper('logo-wrapper', artboardName);
+      localLogo.frame = this.rect();
     }
   }]);
 
@@ -603,12 +765,73 @@ function (_FieldGroup) {
     }
   }, {
     key: "outputText",
-    value: function outputText() {
-      return "Your local real estate professional for " + this.getInputElement().text;
+    value: function outputText(vertical) {
+      return "Your local " + vertical + " professional for " + this.getInputElement().text;
     }
   }]);
 
   return TaglineField;
+}(_field_group__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./src/classes/title-field.js":
+/*!************************************!*\
+  !*** ./src/classes/title-field.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TitleField; });
+/* harmony import */ var _field_group__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./field-group */ "./src/classes/field-group.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var TitleField =
+/*#__PURE__*/
+function (_FieldGroup) {
+  _inherits(TitleField, _FieldGroup);
+
+  function TitleField() {
+    _classCallCheck(this, TitleField);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TitleField).apply(this, arguments));
+  }
+
+  _createClass(TitleField, [{
+    key: "outputName",
+    value: function outputName() {
+      return 'title';
+    }
+  }, {
+    key: "outputText",
+    value: function outputText() {
+      return this.getInputElement().text + " negotiated a 15% discount for all of your ads!";
+    }
+  }]);
+
+  return TitleField;
 }(_field_group__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
@@ -630,7 +853,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_field_group__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./classes/field-group */ "./src/classes/field-group.js");
 /* harmony import */ var _classes_phone_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./classes/phone-field */ "./src/classes/phone-field.js");
 /* harmony import */ var _classes_tagline_field__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./classes/tagline-field */ "./src/classes/tagline-field.js");
-/* harmony import */ var _classes_color__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./classes/color */ "./src/classes/color.js");
+/* harmony import */ var _classes_title_field__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./classes/title-field */ "./src/classes/title-field.js");
+/* harmony import */ var _classes_color__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./classes/color */ "./src/classes/color.js");
+/* harmony import */ var _classes_bigbrand_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./classes/bigbrand-field */ "./src/classes/bigbrand-field.js");
+/* harmony import */ var _classes_color_swatch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./classes/color-swatch */ "./src/classes/color-swatch.js");
+
+
+
 
 
 
@@ -645,22 +874,50 @@ var logo = symbols.filter(function (symbol) {
   return symbol.name === "Logo";
 })[0];
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  new _classes_phone_field__WEBPACK_IMPORTED_MODULE_3__["default"](document, 'area-code').setField();
-  new _classes_field_group__WEBPACK_IMPORTED_MODULE_2__["default"](document, 'location').setField();
-  new _classes_field_group__WEBPACK_IMPORTED_MODULE_2__["default"](document, 'office').setField();
-  new _classes_tagline_field__WEBPACK_IMPORTED_MODULE_4__["default"](document, 'location').setField();
-  new _classes_color__WEBPACK_IMPORTED_MODULE_5__["default"](document, 'primary').update();
-  new _classes_color__WEBPACK_IMPORTED_MODULE_5__["default"](document, 'secondary').update();
-  new _classes_color__WEBPACK_IMPORTED_MODULE_5__["default"](document, 'tertiary').update();
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('colors updated');
+  var vertical = new _classes_field_group__WEBPACK_IMPORTED_MODULE_2__["default"](document, 'vertical').outputText();
   var logoLocator = new _classes_logo_locator__WEBPACK_IMPORTED_MODULE_1__["default"](document, logo);
   logoLocator.sizeToFit();
-  logoLocator.centerAlign('listings-awd');
+
+  switch (vertical) {
+    case 'Real Estate':
+      new _classes_phone_field__WEBPACK_IMPORTED_MODULE_3__["default"](document, 'area-code').setField();
+      new _classes_field_group__WEBPACK_IMPORTED_MODULE_2__["default"](document, 'vertical').setField();
+      new _classes_title_field__WEBPACK_IMPORTED_MODULE_5__["default"](document, 'office').setField();
+      new _classes_bigbrand_field__WEBPACK_IMPORTED_MODULE_7__["default"](document, 'office').setField();
+      logoLocator.centerAlign('listings-awd');
+      logoLocator.centerAlign('fb/insta image listing');
+
+      try {
+        logoLocator.centerAlign('homepage');
+      } catch (err) {
+        console.log(err);
+      }
+
+      break;
+
+    default:
+  }
+
+  new _classes_tagline_field__WEBPACK_IMPORTED_MODULE_4__["default"](document, 'location').setField(vertical.toLowerCase());
+  new _classes_color__WEBPACK_IMPORTED_MODULE_6__["default"](document, 'primary').update();
+  new _classes_color__WEBPACK_IMPORTED_MODULE_6__["default"](document, 'secondary').update();
+  var tertiary = new _classes_color__WEBPACK_IMPORTED_MODULE_6__["default"](document, 'tertiary');
+  tertiary.update();
+  var hideTertiary = tertiary.isWhite();
+  new _classes_color_swatch__WEBPACK_IMPORTED_MODULE_8__["default"](document, hideTertiary).update();
+  new _classes_field_group__WEBPACK_IMPORTED_MODULE_2__["default"](document, 'location').setField();
+  new _classes_field_group__WEBPACK_IMPORTED_MODULE_2__["default"](document, 'office').setField();
   logoLocator.centerAlign('sphere-ad-builder', 1);
-  logoLocator.centerAlign('fb/insta image listing');
   logoLocator.centerAlign('fb/insta image brand');
   logoLocator.leftAlign('brand-awd');
   logoLocator.leftAlign('sphere-awd');
+
+  try {
+    logoLocator.rightAlign('tv-awd', 10);
+  } catch (err) {
+    console.log(err);
+  }
+
   sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('everything worked!');
   console.log('completed!');
 });

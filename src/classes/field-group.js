@@ -14,7 +14,7 @@ export default class FieldGroup {
     }
 
     outputText() {
-        return this.getInputElement().text;
+        return this.getInputElement() == null ? '' : this.getInputElement().text;
     }
 
     getInputElement() {
@@ -22,8 +22,8 @@ export default class FieldGroup {
 
     }
 
-    setField() {
-        var input = this.outputText();
+    setField(optionalInput) {
+        var input = this.outputText(optionalInput);
         var layers = this.document.getLayersNamed(this.outputName());
         for (var i = 0; i < layers.length; i++) {
             layers[i].text = input;

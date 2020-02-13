@@ -46,6 +46,11 @@ export default class Color {
         return this.getColorLayer().style.fills[0].color
     }
 
+    setDefaultColor(color) {
+        this.getColorLayer().style.fills[0].color = color;
+        return this;
+    }
+
     setColor() {
         this.setSharedStyle();
         var layers = this.getSharedStyle().getAllInstancesLayers();

@@ -10,8 +10,13 @@ export default class LogoLocator {
         var logoImage = this.logo.layers[0];
         logoImage.frame.x = 0;
         logoImage.frame.y = 0;
-        logoImage.frame.height = this.logo.frame.height;
-        this.logo.frame.width = logoImage.frame.width;
+        var initial_height = logoImage.frame.height;
+        var initial_width = logoImage.frame.width;
+        var frame_height = this.logo.frame.height;
+        logoImage.frame.height = frame_height;
+        var end_width = initial_width * frame_height/initial_height;
+        this.logo.frame.width = end_width;
+        logoImage.frame.width = end_width;
     }
 
     aspectRatio(width, height) {
@@ -109,13 +114,30 @@ export default class LogoLocator {
         var localLogo = this.findArtboardLogo(artboardName);
         this.setWrapper('logo-wrapper',artboardName);
         localLogo.frame = this.rect();
-        var layers = this.document.getLayersNamed('office');
-        var officeName = layers.filter(function (layer) {
-            return layer.getParentArtboard().name === artboardName } )[0];
-        var layers = this.document.getLayersNamed('location');
-        var location = layers.filter(function (layer) {
-            return layer.getParentArtboard().name === artboardName } )[0];
+        var office = this.getLayer('office', artboardName);
+        var location = this.getLayer('location', artboardName);
+        var agentTitle = this.getLayer('agent-title', artboardName);
         location.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
-        officeName.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
+        if (office) {
+            office.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
+        }
+        if (agentTitle) {
+            agentTitle.frame.x = this.displayLeft() + this.displayWidth() + this.padding;
+        }
+    }
+
+    getLayer(name, artboardName) {
+        var layers = this.document.getLayersNamed(name);
+        return layers.filter(function (layer) {
+            return layer.getParentArtboard().name === artboardName } )[0];
+    }
+
+    rightAlign(artboardName, padding) {
+        this.alignVertical = 'middle';
+        this.alignHorizontal = 'right';
+        this.padding = padding || 5;
+        var localLogo = this.findArtboardLogo(artboardName);
+        this.setWrapper('logo-wrapper',artboardName);
+        localLogo.frame = this.rect();
     }
 }

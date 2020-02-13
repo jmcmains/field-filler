@@ -84,19 +84,19 @@ _add any generated YML Files here_
 h1. Defaults
 h2. User Stories
 As an agent, I expect the headline to be in the following format # BED / # BATH for $LISTING_PRICE
-As an agent, I expect the headline to fall back to ï¿½Listed for Saleï¿½ if bed, bath, or price are missing
-As an agent I expect the default corner ribbon to be ï¿½Just Listedï¿½ and be able to change the corner ribbon with the following options: ï¿½Noneï¿½, ï¿½Just Listedï¿½, ï¿½Just Soldï¿½, ï¿½Open Houseï¿½ ï¿½Pendingï¿½ ï¿½Price Reduced""
-As an agent selecting ï¿½Noneï¿½ for the corner ribbon, I expect no banner to be displayed
-As an agent selecting ï¿½Noneï¿½ for the corner ribbon, I expect the headline to be centered
-As an agent selecting any corner ribbon other than ï¿½Noneï¿½, I expect the headline to be left-justified
+As an agent, I expect the headline to fall back to ÒListed for SaleÓ if bed, bath, or price are missing
+As an agent I expect the default corner ribbon to be ÒJust ListedÓ and be able to change the corner ribbon with the following options: ÒNoneÓ, ÒJust ListedÓ, ÒJust SoldÓ, ÒOpen HouseÓ ÒPendingÓ ÒPrice Reduced""
+As an agent selecting ÒNoneÓ for the corner ribbon, I expect no banner to be displayed
+As an agent selecting ÒNoneÓ for the corner ribbon, I expect the headline to be centered
+As an agent selecting any corner ribbon other than ÒNoneÓ, I expect the headline to be left-justified
 As an agent, I expect my name, company, phone, City/state, image, and listing photo to automatically populate on all ads
-As an agent, I should expect my info (Name, company, phone) to justify to the left when my headshot isnï¿½t present.
+As an agent, I should expect my info (Name, company, phone) to justify to the left when my headshot isnÕt present.
 
 h2. Acceptance Criteria
 The following fields are required: Name, Company Name, Phone, Location, Headline, Property Image
 The following fields are optional: Agent Image
 headline maps as # BED / # BATH for $LISTING_PRICE
-headline falls back to ï¿½Listed for Saleï¿½ if bed, bath, or price are missing
+headline falls back to ÒListed for SaleÓ if bed, bath, or price are missing
 if the ribbon image is hidden, the headline is centered
 if the ribbon image is shown, the headline is left justified
 agent name populates from {partner_agents.display_name}
@@ -153,7 +153,7 @@ h2. Acceptance Criteria
 * map ribbon name to Facebook link text
 * map agent name to the first line of image
 * map company name to the second line of image
-* concatenate phone and city, state with a ï¿½(dot) and map to third line
+* concatenate phone and city, state with a á(dot) and map to third line
 * center align text when agent photo is missing
 * display the selected ribbon in the top right corner of the image
 * map background colors from the web ad to image bottom banner
@@ -255,12 +255,12 @@ _add any required images for ads here_
 h2. Generated YML Files
 _add any generated YML Files here_",,,CustomizeAd Onboarding,Medium,{{reporter}},20,,,{{partner}}
 Turn on compliance for {{partner_long}},14,Story,"h1. User Stories
-As a partner, I want to verify that my agentsï¿½ ads meet brand standards
-As a partner, I want to verify that my agentsï¿½ ads meet compliance standards
+As a partner, I want to verify that my agentsÕ ads meet brand standards
+As a partner, I want to verify that my agentsÕ ads meet compliance standards
 As a partner, I expect automated ads will match my standards and do not need to be approved
 
 h1. Acceptance Criteria
-all non-automated ads go through the ï¿½pending_compliance_approvalï¿½ step before getting to ï¿½pending_approvalï¿½
+all non-automated ads go through the Òpending_compliance_approvalÓ step before getting to Òpending_approvalÓ
 
 h1. Implementation Details
 set partner.compliance_approval_required = true",0.5,,Compliance Onboarding,Medium,{{reporter}},,,,{{partner}}
@@ -284,13 +284,13 @@ ensure user is an api user (bitflag 2^3)
 h1. Approver emails  
 _include emails and names of any people that will need access to the compliance dashboard_",0.5,,Compliance Onboarding,Medium,{{reporter}},,,,{{partner}}
 Add compliance rejection options for {{partner_long}},17,Story,"h1. User Stories
-As a partner, I want to be able to reject ads if they donï¿½t meet my standards with an explanitory code
+As a partner, I want to be able to reject ads if they donÕt meet my standards with an explanitory code
 
 h1. Acceptance Criteria
 allow partners to select from listed options when rejecting an ad campaign
 
 h1. Rejection Options
-_options weï¿½ve added in the past:_
+_options weÕve added in the past:_
 _Request Revision_
 _Reject for Insufficient Budget_
 
@@ -325,7 +325,7 @@ _include details when known_
 
 h1. Background
 for info on how to do this integration: [Skyslope/Dotloop Integration Guide|https://adwerx.atlassian.net/wiki/spaces/EN/pages/500563969]",0.5,,SellerFeed Onboarding,Medium,{{reporter}},,,,{{partner}}
-Soft launch portal for {{partner_long}} by XX/XX,20,Story,"h1. Background
+Soft launch portal for {{partner_long}} on XX/XX,20,Story,"h1. Background
 For a walkthrough and standard notes, please see the confluence docs: 
 [ELF Soft Launch|https://adwerx.atlassian.net/wiki/spaces/EN/pages/225083444]
 [Testing and soft launching Enterprise Retargeting|https://adwerx.atlassian.net/wiki/spaces/EN/pages/826277908]",0.5,,SoftLaunch Onboarding,Medium,{{reporter}},21,,,{{partner}}

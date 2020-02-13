@@ -1516,6 +1516,12 @@ function () {
       return this.getColorLayer().style.fills[0].color;
     }
   }, {
+    key: "setDefaultColor",
+    value: function setDefaultColor(color) {
+      this.getColorLayer().style.fills[0].color = color;
+      return this;
+    }
+  }, {
     key: "setColor",
     value: function setColor() {
       this.setSharedStyle();
@@ -1634,7 +1640,7 @@ function () {
   }, {
     key: "outputText",
     value: function outputText() {
-      return this.getInputElement().text;
+      return this.getInputElement() == null ? '' : this.getInputElement().text;
     }
   }, {
     key: "getInputElement",
@@ -1643,8 +1649,8 @@ function () {
     }
   }, {
     key: "setField",
-    value: function setField() {
-      var input = this.outputText();
+    value: function setField(optionalInput) {
+      var input = this.outputText(optionalInput);
       var layers = this.document.getLayersNamed(this.outputName());
 
       for (var i = 0; i < layers.length; i++) {
@@ -1817,7 +1823,7 @@ module.exports = "file://" + String(context.scriptPath).split(".sketchplugin/Con
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "file://" + String(context.scriptPath).split(".sketchplugin/Contents/Sketch")[0] + ".sketchplugin/Contents/Resources/_webpack_resources/7a7d42d9caf549fed15e0fd83f42b043.csv";
+module.exports = "file://" + String(context.scriptPath).split(".sketchplugin/Contents/Sketch")[0] + ".sketchplugin/Contents/Resources/_webpack_resources/77ab1b56a5e5aab9c068eddb5163cc0b.csv";
 
 /***/ }),
 
