@@ -3,8 +3,8 @@
 <%= IO.read('config/campaign_layouts/common/common_shared_components.yml') %>
 <%= IO.read('config/campaign_layouts/_listing.yml') %>
 
-dobby_hunt:
-  base_name: :dobby_hunt
+partnername_listing_web:
+  base_name: :partnername_listing_web
   type: 'composite'
   code: 'base'
   settings:
@@ -137,13 +137,12 @@ dobby_hunt:
 
     - type: 'block'
       code: 'location_background'
-
       settings:
         left: 0
         top: 228
         width: 300
         height: 22
-        background: "#393939"
+        background: '#393939'
 
     - type: 'block'
       code: 'petriebird_banner_background'
@@ -197,8 +196,8 @@ dobby_hunt:
           max: '16px'
         fontFamily: 'Roboto'
         fontWeight: 'bold'
-        verticalAlign: "middle"
-        color: '#ffffff'
+        verticalAlign: 'middle'
+        color: '#FFFFFF'
       configurable: [ 'text', 'color', 'fontSize' ]
 
     - type: 'text'
@@ -220,8 +219,8 @@ dobby_hunt:
           max: '14px'
         fontFamily: 'Roboto'
         fontWeight: 'bold'
-        verticalAlign: "middle"
-        color: '#ffffff'
+        verticalAlign: 'middle'
+        color: '#FFFFFF'
       configurable: [ 'text', 'color', 'fontSize' ]
 
     - type: 'text'
@@ -243,8 +242,8 @@ dobby_hunt:
           max: '14px'
         fontFamily: 'Roboto'
         fontWeight: 'bold'
-        verticalAlign: "middle"
-        color: '#ffffff'
+        verticalAlign: 'middle'
+        color: '#FFFFFF'
       configurable: [ 'text', 'color', 'fontSize' ]
 
     - type: text
@@ -266,8 +265,8 @@ dobby_hunt:
           max: '13px'
         fontFamily: 'Roboto'
         fontWeight: 'bold'
-        verticalAlign: "middle"
-        color: '#ffffff'
+        verticalAlign: 'middle'
+        color: '#FFFFFF'
         opacity: 0.8
       configurable: [ 'text', 'color', 'fontSize' ]
 
@@ -284,8 +283,8 @@ dobby_hunt:
           max: '13px'
         fontFamily: 'Roboto'
         fontWeight: 'normal'
-        verticalAlign: "middle"
-        color: '#ffffff'
+        verticalAlign: 'middle'
+        color: '#FFFFFF'
         opacity: 0.95
       configurable: [ 'text', 'color', 'fontSize' ]
 

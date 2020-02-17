@@ -71,7 +71,7 @@
     "project.description" : null,
     "project.url" : null,
     "project.name" : "Enterprise",
-    "project.lead" : "jmcmains"
+    "project.lead" : "ldudley"
   },
   "config.date.format" : "dd/MMM/yy h:mm a"
 }
